@@ -1,0 +1,152 @@
+/* StudentDetail.css — Styles for the individual student profile page */
+
+.detail-wrapper {
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  /* Slide in from below on page load */
+  animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Back button */
+.detail-back-btn {
+    background: var(--green);
+  border: none;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.detail-back-btn:hover {
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Hero section: photo + name side by side */
+.detail-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Square photo frame */
+.detail-photo-frame {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  overflow: hidden;
+ background: var(--accent);
+  box-shadow: 0 0 30px rgba(0, 201, 167, 0.25);
+}
+
+.detail-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials fallback */
+.detail-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--primary);
+  background: var(--accent-soft);
+}
+
+.detail-name {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  color: var(--text-main);
+}
+
+.detail-matric {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+/* Info grid — 2 columns on wider screens, 1 on mobile */
+.detail-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .detail-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Each info row */
+.detail-info-item {
+  background: var(--primary);
+  border: 1px solid var(--accent);
+  padding: 1rem 1.2rem;
+  transition: border-color 0.2s;
+}
+
+.detail-info-item:hover {
+  border-color: var(--accent);
+}
+
+/* Field label (e.g. "Email") */
+.detail-info-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+/* Field value (e.g. "student@uni.edu") */
+.detail-info-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* Loading / not found states */
+.detail-loading,
+.detail-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  color: var(--text-muted);
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.detail-matric-hint {
+  font-size: 0.8rem;
+  color: var(--accent);
+}

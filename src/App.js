@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+// App.js — The root of the application.
+// It sets up the routing so different URLs show different pages.
+
+import React from "react";
 import './App.css';
+import Home from './components/Home';
+import StudentList from "./components/Student-lists";
+import StudentDetail from "./components/Student-details";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Home page — search bar + entry point */}
+        <Route index element={<Home />} />
+
+        {/* Student list page — shows all student cards */}
+        <Route path="/student-list" element={<StudentList />} />
+
+        {/* Student detail page — shows one student's full info */}
+        {/* :matricNo is a URL parameter, e.g. /student/CSC/2029/001 */}
+        <Route path="/student/:matricNo" element={<StudentDetail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

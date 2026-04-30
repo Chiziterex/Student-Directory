@@ -1,0 +1,190 @@
+/* Home.css — Styles for the Home/search page */
+
+/* Full-screen centered layout */
+.home-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* Decorative glowing circle in the background */
+/* .home-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 201, 167, 0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* doesn't block clicks to the search box 
+  animation: orb-pulse 4s ease-in-out infinite;
+} */
+
+/* @keyframes orb-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+} */
+
+/* The white card in the center */
+.home-container {
+  background: var(--primary);
+  border: 2px solid var(--accent);
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  /* Slide up animation on load */
+  animation: slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Large bold heading */
+.home-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  font-family: var(--font-heading);
+  text-transform: lowercase;
+  font-size: 3.5rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: var(--green);
+}
+
+/* The teal "2K29" part */
+.home-title-accent {
+  background-color: var(--accent);
+  font-size: 1.2rem;
+    padding: 0.15rem 0.5rem;
+}
+
+.home-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Search input wrapper */
+.home-search-box {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.home-input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  background: var(--primary);
+  border: 2px solid var(--border);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.home-input:focus {
+  border-color: var(--accent);
+}
+
+.home-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Dropdown search results */
+.home-results {
+  background: var(--primary);
+  border: 2px solid var(--border);
+  margin-top: 0.5rem;
+  max-height: 260px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* Each result row */
+.home-result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.home-result-item:hover {
+  background: var(--accent-soft);
+}
+
+/* Tiny circular avatar in results */
+.home-result-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.home-result-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.home-result-matric {
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 0.1rem;
+}
+
+.home-hint {
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Divider text */
+.home-or {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 1.5rem 0;
+  letter-spacing: 0.1em;
+}
+
+/* Main CTA button */
+.home-btn {
+  width: 100%;
+  padding: 0.95rem;
+  background: var(--accent);
+  color: #0a0f1e;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.home-btn:hover {
+  background-color: var(--primary);
+  border: 1px solid var(--accent);
+}
+
+.home-btn:active {
+  transform: translateY(0);
+}

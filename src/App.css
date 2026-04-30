@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+/* App.css — Global styles that apply to the entire app */
+
+/* Import two Google Fonts:
+   - 'Bebas Neue' for bold headings (dramatic, medical/academic feel)
+   - 'DM Sans' for readable body text */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* CSS Variables — change these to restyle the whole app */
+:root {
+  /* --primary: #0a0f1e;        Deep navy — main background */
+  --primary:rgb(250, 249,246);
+  --secondary: #111827;      /* Slightly lighter navy */
+  --accent: #00c9a7;         /* Teal/mint — highlight color */
+  --accent-soft: rgba(0, 201, 167, 0.12); /* Transparent teal for backgrounds */
+    --green: rgb(1, 50, 32); 
+   --text-main: #272828;     /* Off-white for main text */
+  --text-muted: #8899aa;     /* Dimmed text */
+  --card-bg: rgb(22, 31, 48);        /* Card background */
+  --border: rgba(0, 201, 167, 0.2); /* Subtle teal border */
+  --radius: 14px;            /* Default border radius */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Reset — removes default browser margin/padding/box model inconsistencies */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: var(--primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* Subtle dot-grid background texture for depth */
+  background-image: radial-gradient(rgba(0,201,167,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
 }
