@@ -44,6 +44,16 @@ const StudentDetail = () => {
     );
   }
 
+  // Shows first 4 and last 3 characters, masks everything in between with asterisks
+  // Example: 20241495717 → 2024*****717
+  const maskMatric = (matric) => {
+    if (!matric || matric.length <= 7) return matric;
+    const start = matric.slice(0, 4); // first 4 characters
+    const end = matric.slice(-2); // last 2 characters
+    const masked = "*".repeat(matric.length - 7); // asterisks for the middle
+    return `${start}${masked}${end}`;
+  };
+
   // ── Full profile ──
   return (
     <div className="detail-wrapper">
@@ -69,18 +79,18 @@ const StudentDetail = () => {
 
         <div className="detail-hero-info">
           <h2 className="detail-name">{student.name}</h2>
-          <p className="detail-matric">{student.matric_number}</p>
+          <p className="detail-matric">{maskMatric(student.matric_number)}</p>
         </div>
       </div>
 
       {/* Info grid: all other fields from the spreadsheet */}
       <div className="detail-info-grid">
         {student.position_held && (
-  <div className="detail-info-item">
-    <span className="detail-info-label">Position Held</span>
-    <span className="detail-info-value">{student.position_held}</span>
-  </div>
-)}
+          <div className="detail-info-item">
+            <span className="detail-info-label">Position Held</span>
+            <span className="detail-info-value">{student.position_held}</span>
+          </div>
+        )}
         {student.nickname && (
           <div className="detail-info-item">
             <span className="detail-info-label">Nickname</span>
@@ -123,7 +133,7 @@ const StudentDetail = () => {
             <span className="detail-info-value">{student.level}</span>
           </div>
         )}
-  
+
         {/* NEW */}
         {student.extracurricular && (
           <div className="detail-info-item">
