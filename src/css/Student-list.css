@@ -30,9 +30,9 @@
 }
 
 .list-back-btn {
-  background: var(--green);
+  background: var(--accent);
   border: none;
-  color: var(--accent);
+  color: var(--green);
   font-family: var(--font-body);
   font-size: 0.85rem;
   padding: 0.4rem 0.9rem;

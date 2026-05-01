@@ -8,7 +8,7 @@
 /* CSS Variables — change these to restyle the whole app */
 :root {
   /* --primary: #0a0f1e;        Deep navy — main background */
-  --primary:rgb(250, 249,246);
+  --primary:#F6F8FB;
   --secondary: #111827;      /* Slightly lighter navy */
   --accent: #00c9a7;         /* Teal/mint — highlight color */
   --accent-soft: rgba(0, 201, 167, 0.12); /* Transparent teal for backgrounds */
