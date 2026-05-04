@@ -17,6 +17,7 @@ const StudentCard = ({ student, index }) => {
     // Encode the matric number so URL-unsafe characters (like /) don't break routing
     navigate(`/student/${encodeURIComponent(student.matric_number)}`);
   };
+  
 
   return (
     // The card div gets an inline style for animation-delay.

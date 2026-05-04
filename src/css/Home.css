@@ -33,7 +33,7 @@
 /* The white card in the center */
 .home-container {
   background: var(--primary);
-  border: 2px solid var(--accent);
+  border: 1px solid var(--accent);
   padding: 3rem 2.5rem;
   width: 100%;
   max-width: 480px;

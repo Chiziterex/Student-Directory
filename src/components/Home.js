@@ -37,6 +37,14 @@ const Home = () => {
     navigate(`/student/${encodeURIComponent(matricNo)}`);
   };
 
+    const maskMatric = (matric) => {
+    if (!matric || matric.length <= 7) return matric;
+    const start = matric.slice(0, 4); // first 4 characters
+    const end = matric.slice(-2); // last 2 characters
+    const masked = "*".repeat(matric.length - 7); // asterisks for the middle
+    return `${start}${masked}${end}`;
+  };
+
   return (
     <div className="home-wrapper">
       {/* Glowing background orb for visual drama */}
@@ -55,7 +63,7 @@ const Home = () => {
             className="home-input"
             type="text"
             value={searchQuery}
-            onChange={handleChange}  // ← FIXED: was onClick before, should be onChange
+            onChange={handleChange} 
             placeholder="Search by name or matric number..."
           />
         </div>
@@ -85,7 +93,7 @@ const Home = () => {
                 )}
                 <div>
                   <p className="home-result-name">{student.name}</p>
-                  <p className="home-result-matric">{student.matric_number}</p>
+                  <p className="home-result-matric">{maskMatric(student.matric_number)}</p>
                 </div>
               </div>
             ))}
